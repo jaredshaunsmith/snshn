@@ -4,6 +4,7 @@ A wordpress theme built on backone.js
 
 
 [Jared Smith](http://jaredsmyth.info)
+
 -------------------------------
 
 #A fork from the original:
