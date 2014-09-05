@@ -1,7 +1,7 @@
 node_modules
 .DS_Store
 .ds_store
-.sass_cache
+.sass-cache
 scripts
 images
 css
