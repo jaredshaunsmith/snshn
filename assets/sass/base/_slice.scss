@@ -1,0 +1,47 @@
+.slice {
+	width: 100%;
+}
+
+.slice-item {
+	width: 50%;
+	float: left;
+}
+
+.slice-wide {
+	width: 100%;
+}
+
+.slice-2col-spaced {
+	.slice-item {
+		width: 33%;
+		margin-right: 30px; 
+	}
+}
+
+.slice-3col {
+  & > .slice-item {
+		width: (100% / 3);
+	}
+  & > .slice-item-wide {
+  		width: 100% / 3 * 2;
+  }
+}
+
+.slice-4col {
+	& > .slice-item {
+		width: 25%;
+	}
+
+	& > .slice-item-wide {
+		width: 75%;
+	}
+}
+
+.slice-5col {
+  & > .slice-item {
+		width: (100% / 5);
+	}
+  & > .slice-item-wide {
+  		width: 100% / 5 * 2;
+  }
+}

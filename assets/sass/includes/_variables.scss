@@ -1,0 +1,81 @@
+// colors
+$site-color: #6c6c6c;
+$site-highlight: #4d9ad9;
+$site-stroke: #dbdbdb;
+$site-strong: #bbbccc;
+$site-light: #AAAAAA;
+$site-medium: #5c5c5c;
+$site-error: #f07479;
+$site-hover: #2a6d8e;
+$site-background: #f9f9f9;
+$site-background-alt: #f9f9f9;
+
+// page layout
+$header-height: 77px;
+$footer-height: 230px;
+$border-radius: 5px;
+
+// typography math
+$baseline: 10px;
+$baseline-rem: 1.5rem;
+$baseline-lineheight: 25px;
+$line-height-factor: 1.7;
+$letter-spacing-factor: 0.0009;
+
+// global spacing
+$spacing: 20px;
+$spacing-double: $spacing * 2;
+$spacing-triple: $spacing * 3;
+$spacing-quad:   $spacing * 4;
+$spacing-quint:  $spacing * 5;
+$spacing-sext:   $spacing * 6;
+$spacing-sept:   $spacing * 7;
+$spacing-oct: 	 $spacing * 8;
+$spacing-half:   $spacing / 2;
+$spacing-third:  $spacing / 3;
+$spacing-fourth: $spacing / 4;
+
+
+// grid
+// $susy: (
+// 	columns: 12,
+// 	gutters: 1/8,
+// 	column-width: true
+// );
+
+// responsive
+	// global breaks
+	$tiny: 320;
+	$small: 480;
+	$phone: 640;
+	$phone-l: 768;
+	$tablet: 960;
+	$tablet-l: 1024;
+	$full: 1080; // set to the same as wrapper-width
+	$desktop: 1280;
+
+	// build media queries
+	@mixin tiny() {
+		@include respond-to($tiny) { @content; }
+	}
+	@mixin small() {
+		@include respond-to($small) { @content; }
+	}
+	@mixin phone() {
+		@include respond-to($phone) { @content; }
+	}
+	@mixin phone-l() {
+		@include respond-to($phone-l) { @content; }
+	}
+	@mixin tablet() {
+		@include respond-to($tablet) { @content; }
+	}
+	@mixin tablet-l() {
+		@include respond-to($tablet-l) { @content; }
+	}
+	@mixin full-screen() {
+		@include respond-to($full) { @content; }
+	}
+	@mixin desktop() {
+		@include respond-to($desktop) { @content; }
+	}

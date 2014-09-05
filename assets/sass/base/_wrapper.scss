@@ -1,0 +1,23 @@
+.wrapper {
+	max-width: $full + px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+@include full-screen() {
+	.wrapper {
+		padding: 0 $spacing-quad;
+	}
+}
+
+@include tablet() {
+	.wrapper {
+		padding: 0 $spacing-double;
+	}
+}
+
+@include phone() {
+	.wrapper {
+		padding: 0 $spacing;
+	}
+}

@@ -1,0 +1,55 @@
+.clearfix {
+  *-zoom: 1;
+  overflow: hidden;
+}
+
+@mixin type-size ($size) {
+	font-size: $size + rem;
+	line-height: $size * $line-height-factor + rem;
+	letter-spacing: $size * $letter-spacing-factor + rem;
+}
+
+// respond-to
+$media-style: max-width;
+@mixin respond-to($breakpoint) {
+  @media only screen and ($media-style: $breakpoint + px) { @content; }
+}
+
+// replace
+.centered {
+	transition-property: margin-left;
+	transition-duration: 0.6s;
+	transition-timing-function: ease-in;
+
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -18px;
+	margin-left: -32px;
+
+	&.after {
+		margin-left: -107px;
+	}
+}
+
+// stolen from compass (thanks!)
+// @mixin experimental($property, $value, $moz: $experimental-support-for-mozilla, $webkit: $experimental-support-for-webkit, $o: $experimental-support-for-opera, $ms: $experimental-support-for-microsoft, $khtml: $experimental-support-for-khtml, $official: true) {
+//   @if $webkit and $experimental-support-for-webkit {
+//     -webkit-#{$property}: $value;
+//   }
+//   @if $khtml and $experimental-support-for-khtml {
+//     -khtml-#{$property}: $value;
+//   }
+//   @if $moz and $experimental-support-for-mozilla {
+//     -moz-#{$property}: $value;
+//   }
+//   @if $ms and $experimental-support-for-microsoft {
+//     -ms-#{$property}: $value;
+//   }
+//   @if $o and $experimental-support-for-opera {
+//     -o-#{$property}: $value;
+//   }
+//   @if $official {
+//     #{$property}: $value;
+//   }
+// }

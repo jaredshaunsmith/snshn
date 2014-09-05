@@ -1,0 +1,29 @@
+/**
+  @name Header
+  @description Header module
+
+  @state .header-small
+  @state .header-sub
+
+  @markup
+    <h1 class="header">Stellar String</h1>
+
+**/
+
+
+.header {
+	font-weight: lighter;
+	font-size: 6.6rem;
+	color: $site-strong;
+}
+
+
+.header-small { font-size: 5.2rem; }
+
+.header-sub { font-size: 1.8rem; }
+
+@if $EXTENDBASE {
+	h1 { @extend .header; }
+	h2 { @extend .header; @extend .header-small; }
+	h3 { @extend .header; @extend .header-sub; }
+}

@@ -1,0 +1,7 @@
+node_modules
+.DS_Store
+.ds_store
+.sass_cache
+scripts
+images
+css

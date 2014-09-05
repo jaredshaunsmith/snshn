@@ -1,0 +1,18 @@
+/**
+  @name HR
+  @description Horizontal rule
+
+  @markup
+    <hr class="clean-hr"></hr>
+
+**/
+
+.clean-hr {
+  border: none;
+  width: 100%;
+  border-top: 1px solid $site-stroke;
+}
+
+@if $EXTENDBASE {
+	hr { @extend .clean-hr; }
+}

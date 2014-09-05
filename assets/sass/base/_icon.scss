@@ -1,0 +1,14 @@
+.icon {
+	-ms-behavior: url('/dist/assets/library/backgroundsize.min.htc');
+	background-position: center center;
+	background-size: contain;
+	display: block;
+}
+
+@each $i in (8 14 16 22 24 27 28 32 34 38 48 60 72 90 360) {
+	.icon-#{$i} {
+		width: #{$i}px; 
+		height: #{$i}px;
+		display: block;
+	}
+}

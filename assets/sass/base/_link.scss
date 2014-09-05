@@ -1,0 +1,55 @@
+/**
+  @name Link
+  @description Link module
+
+	@state .link-alt - a link with the default site color
+	@state .link-arrow - a link that has a right arrow
+	@state .link-arrow-down - a link that has a download arrow
+
+  @markup
+    <a  href="http://en.wikipedia.org/wiki/Special:Random">Wikipedia</a>
+**/
+
+.link {
+	transition-property: color;
+	transition-duration: 0.3s;
+
+	color: $site-highlight;
+	text-decoration: none;
+	cursor: pointer;
+
+	&:hover { color: $site-hover; }
+}
+.link-alt {
+	@extend .link;
+	color: $site-color;
+
+	&:hover {
+		color: $site-stroke;
+	}
+}
+.link-arrow {
+	@extend .link;
+	&:after {
+		content: "\279E";
+		display: inline-block;
+		clear: both;
+		margin-left: $spacing-half;
+	}
+}
+.link-arrow-alt {
+	color: #fff;
+	font-size: 1.3rem;
+}
+.link-arrow-down {
+	@extend .link;
+	&:after {
+		content: "\2913";
+		display: inline-block;
+		clear: both;
+		margin-left: $spacing-half;
+	}
+}
+@if $EXTENDBASE {
+	a { @extend .link; }
+}

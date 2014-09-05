@@ -1,0 +1,31 @@
+/**
+  @name Paragraph
+  @description Style for the paragraph class
+
+  @state .paragraph-medium
+  @state .paragraph-small
+  @state .paragraph-sub
+  @state .paragraph-header
+  
+  @markup
+    <div class="paragraph">Aliquam ac ornare lectus. Sed euismod odio eu est ullamcorper, scelerisque molestie tellus tincidunt. Mauris ac tellus ac lorem mollis tincidunt. Nam vulputate enim non velit hendrerit, quis posuere risus laoreet. Nullam vitae odio nibh. Etiam vel scelerisque ligula. Sed ac velit quis elit scelerisque convallis. Mauris vitae lectus eu arcu posuere volutpat. Mauris non velit vehicula, posuere metus et, venenatis ante. Phasellus sit amet dui felis. Duis posuere leo justo, at varius justo pellentesque sed.</div>
+*/
+
+
+.paragraph {
+    @include type-size(1.8);
+
+    margin-bottom: $spacing-double;
+}
+.paragraph-header { @include type-size(4.4); line-height: 1.5em; }
+.paragraph-medium { @include type-size(1.5); }
+.paragraph-small  { @include type-size(1.3); }
+.paragraph-sub {
+  @extend .paragraph;
+  margin-bottom: 30px;
+}
+
+
+@if $EXTENDBASE {
+	p { @extend .paragraph; }
+}

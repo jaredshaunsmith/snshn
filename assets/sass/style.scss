@@ -1,0 +1,57 @@
+/** for now **/
+#posts {
+  opacity: 0;
+  transition-duration: .9s;
+  transition-property: opacity;
+}
+#posts.active {
+  opacity: 1;
+}
+
+#posts img {
+  width: 100%;
+}
+
+// reset it all
+@import "includes/reset";
+
+// includes (variables and macros) 
+@import "includes/variables";
+@import "includes/mixins";
+@import "includes/fonts";
+@import "jeet/index.scss";
+
+
+// base elements
+@import "base/base";
+
+// typography
+@import "base/headers";
+@import "base/list";
+@import "base/paragraph";
+@import "base/link";
+
+// ui
+@import "base/button";
+@import "base/input";
+@import "base/icon";
+
+// layout
+@import "base/table";
+@import "base/hr";
+@import "layout/row";
+@import "layout/container";
+
+// components
+@import "components/intro";
+@import "components/footer";
+
+// base grid
+@import "base/wrapper";
+@import "base/slice";
+
+// components (very small pieces of modules)
+
+// modules (groupingss of components)
+
+//layouts (page specific styles - there should not be a lot in here)
