@@ -40,7 +40,7 @@ snshn.homeView = Backbone.View.extend({
         $(this.el).html(template);
 
         window.setTimeout(function() {
-            $(self.el).parent().addClass(self.states.active);
+            $(self.el).parent().parent().addClass(self.states.active);
         }, 5000);
 
         snshn.tools.scrollToTop();

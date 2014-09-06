@@ -20,8 +20,10 @@ get_header();
 </div>
 
 <div id="posts" class="wrapper">
-	<div id="left" style="float: left; width: 40%;"></div>
-	<div id="single" style="float: left; width: 40%;"></div>
+	<div class="row-2">
+		<div id="left" class="row-item"></div>
+		<div id="single" class="row-item"></div>
+	</div>
 </div>
 
 <?php get_template_part( 'templates' ); ?>

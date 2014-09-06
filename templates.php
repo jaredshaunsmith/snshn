@@ -1,5 +1,5 @@
 <script type="text/tmpl" id="home-view">
-    <div class="post-list">
+    <div class="post-list row-item">
 
          {[ if(posts.length) { ]}
             {[ _.each(posts, function(post){ 
@@ -39,7 +39,7 @@
 </script>
 
 <script type="text/tmpl" id="single-post-view">
-    <div class="post-list">
+    <div class="post-list row-item">
         <article class="post">
                     <h2>
                         <a href="<?php get_bloginfo('url'); ?>/#posts/{{ post.get('ID') }}/">{{ post.get("title") }}</a>
