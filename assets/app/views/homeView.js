@@ -61,6 +61,7 @@ snshn.homeView = Backbone.View.extend({
 
         window.setTimeout(function() {
             $('#posts').addClass(self.states.active);
-        }, 5000);
+            $('[data-id="'+window.location.hash.split('#posts').pop().split('/')[1]+'"] a').addClass('active-post');
+        }, 3000);
     }
 });

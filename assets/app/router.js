@@ -10,12 +10,12 @@ snshn.AppRouter = Backbone.Router.extend({
 
     singlePost: function(post_id, slug) {
         if($('#posts #left .post-list').length <= 0) {
-            console.log('new home view from single');
             new snshn.homeView().fetchPosts(1);
         }
-        // console.log('post view', post_id, slug);
         new snshn.singlePostView().fetchPost(post_id, 'sunshine_product');
-        // new snshn.CommentView();
+
+        $('a, .post-list').removeClass('active-post');
+        $('[data-id="'+post_id+'"] a').addClass('active-post');
     },
 
     singlePage: function(post_id) {

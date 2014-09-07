@@ -2,7 +2,9 @@ snshn.singlePostView = Backbone.View.extend({
     el: '#single',
 
     initialize: function() {
-        console.log('initializing single post view');
+        // console.log('initializing single post view');
+        $('a, .post-list').removeClass('active-post');
+        
     },
 
     states: {
@@ -16,7 +18,6 @@ snshn.singlePostView = Backbone.View.extend({
     fetchPost: function(post_id, type) {
         self = this;
         self.type = type;
-        // console.log(type, post_id, this);
 
         this.model = new wp.api.models.Post({'ID': post_id });
 

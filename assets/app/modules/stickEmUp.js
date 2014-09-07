@@ -32,7 +32,7 @@ snshn.StickEmUp = (function($, snshn) {
         bind: function() {
             var self = this;
 
-            $('#leftScroll').on('scroll', function() {
+            $('#leftScroll').on('scrolling', function() {
                 self.scroll();
             });
         },

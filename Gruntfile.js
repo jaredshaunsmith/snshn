@@ -83,6 +83,7 @@ module.exports = function (grunt) {
         jshint: {
             beforeconcat: {
                 options: {
+                    smarttabs: true,
                     expr: {
                         ExpressionStatements: true
                     },
@@ -93,6 +94,7 @@ module.exports = function (grunt) {
 
             afterconcat: {
                 options: {
+                    smarttabs: true,
                     expr: {
                         ExpressionStatements: true
                     },
