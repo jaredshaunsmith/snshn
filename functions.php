@@ -98,7 +98,7 @@ class WeDevs_Bootstrap {
         // }
 
         wp_enqueue_script( 'theme-script', $template_directory . '/scripts/app.js', array('jquery'), '20120206', true );
-        wp_enqueue_script( 'theme-scroll', $template_directory . '/scripts/jquery.tinyscrollbar.min.js', array('jquery'), '20120206', true );
+        wp_enqueue_script( 'theme-scroll', $template_directory . '/scripts/jquery.fs.scroller.min.js', array('jquery'), '20120206', true );
         // wp_localize_script( 'theme-script', 'wedevsBackbone', array(
         //     'base' => home_url( '/' ),
         //     'ajaxurl' => admin_url( 'admin-ajax.php' ),

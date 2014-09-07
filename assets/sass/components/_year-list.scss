@@ -1,5 +1,5 @@
 .year-list {
-	text-align: right;
+	overflow: hidden;
 	&-item {
 		&:before {
 			content: "_________________________";

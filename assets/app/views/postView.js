@@ -31,8 +31,10 @@ snshn.singlePostView = Backbone.View.extend({
     },
 
     render: function() {
-        var self = this;
-        var container = $('#single-post-view').html();
+        var self = this,
+            container = $('#single-post-view').html();
+
+        $(this.el).scroller('destroy');
 
         template = _.template(container, {
             post: this.model
@@ -40,6 +42,8 @@ snshn.singlePostView = Backbone.View.extend({
 
         $(this.el).html(template);
         snshn.tools.PubSub.trigger('post:single:' + this.type, this.model);
+
+        $(this.el).scroller();
 
         window.setTimeout(function() {
             $(self.el).parent().addClass(self.states.active);

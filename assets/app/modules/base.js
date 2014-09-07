@@ -24,7 +24,7 @@ snshn.Base = (function($, snshn){
         snshn.setupHeights = function() {
             var w = $(window).outerHeight(true),
                 fH = snshn.$els.footer.outerHeight(true),
-                oF = '40',
+                oF = '60',
                 t = w - fH - oF;
 
             snshn.$els.left.css('height', t);
@@ -56,7 +56,6 @@ snshn.Base = (function($, snshn){
         },
 
         intro: function() {
-            console.log('intro');
             var item = $('.intro'),
                     self = this,
                     footer = $('.footer');
@@ -70,10 +69,14 @@ snshn.Base = (function($, snshn){
             window.setTimeout(function(){
                 item.addClass('done');
                 footer.addClass('ready');
+
                 setTimeout(function() {
+                    $('.scrollbar').each( function() {
+                        $(this).scroller();
+                    });
                     snshn.setupHeights();
                 }, 800);
-            }, 3600);
+            }, 3000);
             
             self.backboneStart();
         },

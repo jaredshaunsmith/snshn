@@ -22,20 +22,16 @@ get_header();
 <div id="posts" class="wrapper">
 	<!-- info column -->
 	<div class="row-2">
-		<div id="leftScroll" class="row-item row-2">
+		<div id="leftScroll" class="row-item row-2 scrollbar">
 			<div id="yearList" class="row-item year-list">
 				<ul>
-					<li class="year-list-item">2014</li>
-					<li class="year-list-item">2013</li>
-					<li class="year-list-item">2012</li>
-					<li class="year-list-item">2011</li>
-					<li class="year-list-item">2010</li>
+					
 				</ul>
 			</div>
 			<div id="left" class="row-item"></div>
 		</div>
 		<!-- post view -->
-		<div id="single" class="row-item"></div>
+		<div id="single" class="row-item scrollbar"></div>
 	</div>
 </div>
 

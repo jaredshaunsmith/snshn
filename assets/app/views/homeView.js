@@ -37,6 +37,25 @@ snshn.homeView = Backbone.View.extend({
             currentPage: this.currentPage
         });
 
+         // get date-groups
+        this.dates = [];
+        _.each(this.collection.models, function(el) {
+            var test = String(el.attributes.date).split(" "),
+                pattern = /\d{4}$/;
+
+            _.find(test, function(result) {
+                if(pattern.test(result) && result.length <= 4) {
+                    if(!_.contains(self.dates, result)) {
+                        self.dates.push(result);
+                    }
+                }
+            });
+        });
+        window.setTimeout(function() {
+            new snshn.DateView(self.dates);
+        }, 2000);
+
+
         $(this.el).html(template);
 
         window.setTimeout(function() {
