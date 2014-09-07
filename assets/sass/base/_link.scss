@@ -14,11 +14,11 @@
 	transition-property: color;
 	transition-duration: 0.3s;
 
-	color: $site-highlight;
+	color: black;
 	text-decoration: none;
 	cursor: pointer;
 
-	&:hover { color: $site-hover; }
+	&:hover { color: $site-highlight; }
 }
 .link-alt {
 	@extend .link;

@@ -1,0 +1,16 @@
+%infoClass {
+	float: left;
+}
+.info {
+	&-title {
+		@extend %infoClass;
+		font-weight: bold;
+	}
+	&-pipe {
+		@extend %infoClass;
+		margin: 0px $spacing-fourth;
+	}
+	&-type {
+		@extend %infoClass;
+	}
+}

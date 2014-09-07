@@ -1,17 +1,22 @@
 <script type="text/tmpl" id="home-view">
-    <div class="post-list row-item">
+    <div class="post-list">
 
          {[ if(posts.length) { ]}
             {[ _.each(posts, function(post){ 
                 ]}
 
                 <article class="post">
-                    <h2>
-                        <a href="<?php get_bloginfo('url'); ?>/#posts/{{ post.get('ID') }}/">{{ post.get("title") }}</a>
-                    </h2>
+                    <h3>
+                        <a href="<?php get_bloginfo('url'); ?>/#posts/{{ post.get('ID') }}/">{{ post.get('title') }}</a>
+                    </h3>
 
-                    <img src="{{ post.get('custom_meta')['photo'] }}" />
+                    <img src="{{ post.get('custom_meta')['photo'] }}"  style="visibility: hidden; height: 0px; width: 0px;"/>
 
+                    <div class="info">
+                        <div class="info-title">{{ post.get('custom_meta')['artist'] }}</div>
+                        <div class="info-pipe"> | </div>
+                        <div class="info-type">{{ post.get('custom_meta')['run_time'] }}</div>
+                    </div>
                 </article>
 
             {[ }); ]}
@@ -21,46 +26,25 @@
             <h2>No posts found</h2>
 
         {[ } ]}
-
-        {[ if ( pages > 1 ) { ]}
-            <div class="pagination pagination-centered"><ul>
-            {[ for (var i = 1; i <= pages; i++) { ]}
-
-                {[ className = (i == currentPage) ? ' class="active"' : '' ]}
-
-                <li{{ className }}><a href="#/p/{{ i }}">{{ i }}</a></li>
-
-            {[ } ]}
-
-            </div></ul>
-
-        {[ } ]}
     </div>
 </script>
 
 <script type="text/tmpl" id="single-post-view">
-    <div class="post-list row-item">
+    <div class="post-list">
         <article class="post">
-                    <h2>
-                        <a href="<?php get_bloginfo('url'); ?>/#posts/{{ post.get('ID') }}/">{{ post.get("title") }}</a>
-                    </h2>
 
-                    <img src="{{ post.get('custom_meta')['photo'] }}" />
+                    <img class="post-image" src="{{ post.get('custom_meta')['photo'] }}" />
+                    <h1 class="post-title">{{ post.get("title") }}</h1>
+                    <h2 class="post-artist">{{ post.get('custom_meta')['artist'] }}</h2>
+
+                    <div class="post-copy">{{ post.get('custom_meta')['copy'] }}</div>
 
                     <ul>
-                        <li>{{ post.get('custom_meta')['artist'] }}</li>
-                        <li>{{ post.get('custom_meta')['copy'] }}</li>
                         <li>{{ post.get('custom_meta')['cat_number'] }}</li>
                         <li>{{ post.get('custom_meta')['run_time'] }}</li>
                         <li>{{ post.get('custom_meta')['edition_number'] }}</li>
                         <li>{{ post.get('custom_meta')['extra_info'] }}</li>
                     </ul>
-
-                    <div class="entry-meta">
-
-                    </div>
-
-                    <div class="entry-content">{{ post.get('copy') }}</div>
                 </article>
     </div>
 </script>

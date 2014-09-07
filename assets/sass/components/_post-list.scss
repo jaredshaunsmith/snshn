@@ -1,0 +1,9 @@
+.post-list {
+	h3 { 
+		color: black; 
+		@include type-size(1.7);
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}

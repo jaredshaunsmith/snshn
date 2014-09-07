@@ -45,7 +45,6 @@ snshn.singlePostView = Backbone.View.extend({
             $(self.el).parent().addClass(self.states.active);
         }, 5000);
 
-        snshn.tools.scrollToTop();
     }
 
 });

@@ -1,0 +1,20 @@
+%footerInfoClass {
+	li {
+		margin-bottom: $spacing-fourth;
+		font-size: 1.1rem;
+		line-height: 1.7rem;
+	}
+}
+.footer-info {
+	&-about {
+		@extend %footerInfoClass;
+		line-height: 1.9rem;
+		font-size: 1.2rem;
+	}
+	&-connect {
+		@extend %footerInfoClass;
+	}
+	&-distributors {
+		@extend %footerInfoClass;
+	}
+}

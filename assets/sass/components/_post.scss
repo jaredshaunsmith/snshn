@@ -1,0 +1,28 @@
+.post {
+	margin-bottom: $spacing;
+
+	&-image {
+		margin-bottom: $spacing-half;
+	}
+	
+	&-title {
+		font-size: 2rem;
+		line-height: 2.2rem;
+		color: $site-strong;
+		margin-bottom: $spacing-fourth;
+	}
+
+	&-artist {
+		font-size: 1.7rem;
+		line-height: 2rem;
+		color: $site-light;
+		margin-bottom: $spacing-half;
+	}
+
+	&-copy {
+		p {
+			@include type-size(1.2);
+			color: $site-medium
+		}
+	}
+}

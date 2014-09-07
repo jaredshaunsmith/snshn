@@ -1,32 +1,13 @@
-// $(document).ready(function() {
-//     var q = asyncJS(),
-//         scripts = document.getElementsByTagName('script'),
-//         path = scripts[scripts.length-1].src.split('?')[0],
-//         mydir = path.split('/').slice(0, -1).join('/')+'/';
-
-//     // ///////////////////////
-//     // all our modules to load
-//     // ///////////////////////
-//     var modules = [
-//         'views/homeView',
-//         'views/postView',
-//         'router'
-//     ];
-//     //////////////////////////
-
-//     q.add( _.map(modules, function(path) { return mydir + path + '.js' }) );
-
-//     q.whenDone(function() {
-//         new snshn.base()
-//     });
-// });
-
-
-
 snshn.Base = (function($, snshn){
     var def = function() {
         snshn.options = {
             'baseUrl' : 'http://stage.sunshineltd.info/'
+        };
+
+        snshn.$els = {
+            footer: $('.footer'),
+            left: $('#leftScroll'),
+            right: $('#single')
         };
 
         snshn.tools = {
@@ -40,6 +21,16 @@ snshn.Base = (function($, snshn){
 
         };
 
+        snshn.setupHeights = function() {
+            var w = $(window).outerHeight(true),
+                fH = snshn.$els.footer.outerHeight(true),
+                oF = '40',
+                t = w - fH - oF;
+
+            snshn.$els.left.css('height', t);
+            snshn.$els.right.css('height', t);
+        };
+
         _.extend(snshn.tools.PubSub, Backbone.Events);
 
         _.templateSettings = {
@@ -51,19 +42,19 @@ snshn.Base = (function($, snshn){
     };
 
     var init = function() {
-        $.ajaxSetup({
-            beforeSend: function(jqXHR){
-                $('.loading').show();
-            },
-            complete: function() {
-                $('.loading').hide();
-            }
-        });
-
+        this.bind();
         this.intro();
     }
 
     def.prototype = {
+
+        bind: function() {
+            var self = this;
+            $(window).on('resize', function() {
+                snshn.setupHeights();
+            });
+        },
+
         intro: function() {
             console.log('intro');
             var item = $('.intro'),
@@ -79,6 +70,9 @@ snshn.Base = (function($, snshn){
             window.setTimeout(function(){
                 item.addClass('done');
                 footer.addClass('ready');
+                setTimeout(function() {
+                    snshn.setupHeights();
+                }, 800);
             }, 3600);
             
             self.backboneStart();

@@ -1,0 +1,12 @@
+.year-list {
+	text-align: right;
+	&-item {
+		&:before {
+			content: "_________________________";
+			display: block;
+			float: left;
+			margin-right: 10px;
+			margin-left: -20px;
+		}
+	}
+}

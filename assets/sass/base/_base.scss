@@ -36,7 +36,12 @@ body {
     font-smoothing: antialiased;
     text-size-adjust: 100%;
     tap-highlight-color: transparent;
+    overflow: hidden;
 }
+
+#content { padding: $spacing; }
+
+strong { font-weight: bold; }
 
 @include tablet-l() {
     html { font-size: 9.5px; }

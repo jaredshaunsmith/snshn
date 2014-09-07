@@ -46,7 +46,7 @@ $row-options: (
 
 	.row-#{$row-option} {
 		@include cf();
-		overflow: hidden;
+		// overflow: hidden;
 
 		& > .row-item {
 			@include col(nth($amount, 1), $cycle:$row-option);
@@ -65,4 +65,5 @@ $row-options: (
 // //////////////////////
 .row-item {
 	@include col(1/2);
+	position: relative;
 }
