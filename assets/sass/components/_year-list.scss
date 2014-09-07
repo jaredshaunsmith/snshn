@@ -1,6 +1,7 @@
 .year-list {
 	overflow: hidden;
 	&-item {
+		list-style: none;
 		&:before {
 			content: "_________________________";
 			display: block;
