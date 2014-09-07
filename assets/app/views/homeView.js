@@ -6,7 +6,7 @@ snshn.homeView = Backbone.View.extend({
     },
 
     initialize: function() {
-        console.log('initializing home view');
+        // console.log('initializing home view');
     },
 
     fetchPosts: function(page_id) {
