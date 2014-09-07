@@ -45,6 +45,7 @@ snshn.homeView = Backbone.View.extend({
 
             _.find(test, function(result) {
                 if(pattern.test(result) && result.length <= 4) {
+                    el.attributes.date = result;
                     if(!_.contains(self.dates, result)) {
                         self.dates.push(result);
                     }

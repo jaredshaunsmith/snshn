@@ -4,7 +4,7 @@ snshn.DateView = (function($, _, snshn) {
 
 		this.dates = dates;
 
-		this.tmpl = _.template('<li class="year-list-item">{{ d }}</li>');
+		this.tmpl = _.template('<li class="year-list-item stick-em-up" style="margin-top: {{ t }}">{{ d }}</li>');
 
 		init.call(this);
 	};
@@ -18,11 +18,20 @@ snshn.DateView = (function($, _, snshn) {
 			var self = this;
 
 			_.each(this.dates, function(date) {
-				self.$el.append(self.tmpl({d: date }));
+				var match = $('[data-year*="'+date+'"]').first();
+				var top = match.offset().top + 'px';
+
+				self.$el.append(self.tmpl({d: date, t: top }));
 			});
 
+			this.stick();
+		},
+
+		stick: function() {
+			// new snshn.StickEmUp($('li.stick-em-up'));
 		}
-	}
+
+	};
 
 	return def;
 })(jQuery, _, snshn);

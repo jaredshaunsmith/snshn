@@ -5,7 +5,7 @@
             {[ _.each(posts, function(post){ 
                 ]}
 
-                <article class="post">
+                <article class="post" data-year="{{ post.get('date') }}">
                     <h3>
                         <a href="<?php get_bloginfo('url'); ?>/#posts/{{ post.get('ID') }}/">{{ post.get('title') }}</a>
                     </h3>

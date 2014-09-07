@@ -40,7 +40,7 @@
 			</div>
 		</div>
 
-		<div class="row-item row-2">
+		<div class="row-item row-3">
 			<div class="row-item">
 				<h3>Distributors</h3>
 				<div class="footer-info footer-info-distributors">
@@ -54,6 +54,9 @@
 			</div>
 			<div class="row-item">
 				<h3>Cart</h3>
+			</div>
+			<div class="row-item">
+				<h3>Audio</h3>
 			</div>
 		</div>
 
