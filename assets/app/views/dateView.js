@@ -6,12 +6,13 @@ snshn.DateView = (function($, _, snshn) {
 
 		this.tmpl = _.template('<li class="year-list-item stick-em-up" style="position: absolute; left: -100%;">{{ d }}</li>');
 
-		this.parent = $('#leftScroll-test');
+		this.parent = $('#leftScroll');
 
 		init.call(this);
 	};
 
 	var init = function() {
+		this.bind();
 		this.setup();
 	};
 
@@ -19,7 +20,7 @@ snshn.DateView = (function($, _, snshn) {
 		bind: function() {
 			var self = this;
 
-			this.parent.on('scrollWoo', function() {
+			this.parent.on('scrolling', function() {
 				self.stick();
 			});
 		},
@@ -39,47 +40,47 @@ snshn.DateView = (function($, _, snshn) {
 		},
 
 		stickSetup: function() {
-			// var item = $('.year-list-item');
+			var item = $('.year-list-item');
 
-			// item.each(function() {
-			// 	var stick = $(this);
+			item.each(function() {
+				var stick = $(this);
 
-			// 	$.data(stick[0], 'pos', stick.offset().top);
-			// });
+				$.data(stick[0], 'pos', stick.offset().top);
+			});
 
-			// window.setTimeout(function() {
-			// 	item.first().css({'position': 'fixed', 'top': item.offset().top, 'left': item.offset().left});
-			// },3000);
+			window.setTimeout(function() {
+				item.first().css({'position': 'fixed', 'top': item.offset().top, 'left': item.offset().left});
+			},4000);
 		},
 
 		stick: function() {
 			// new snshn.StickEmUp($('li.stick-em-up'));
-		// 	var item = $('.year-list-item');
+			var item = $('.year-list-item');
 
 
-		// 	item.each(function(i) {
+			item.each(function(i) {
 
-		// 		var stick = $(this),
-		// 				next = item.eq(i+1),
-		// 				prev = item.eq(i-1),
-		// 				pos = $.data(stick[0], 'pos');
+				var stick = $(this),
+						next = item.eq(i+1),
+						prev = item.eq(i-1),
+						pos = $.data(stick[0], 'pos');
 
-		// 		console.log(stick, next, prev, pos);
+				// console.log(stick, next, prev, pos);
 
-		// 		if(pos <= self.parent.scrollTop()) {
-		// 			stick.css('position', 'fixed');
+				// if(pos <= self.parent.scrollTop()) {
+				// 	stick.css('position', 'fixed');
 
-		// 			if(next.length > 0 && stick.offset().top >= $.data(stick[0], 'pos') - stick.outerHeight()) {
-		// 				stick.css({'postion':'absolute', 'top': $.data(next[0], 'pos') - (stick.outerHeight() * 2) - (item.eq(0).offset().top - item.eq(i).outerHeight()) });
-		// 			}
-		// 		} else {
-		// 			stick.css({'position': 'absolute', 'top': ''});
+				// 	if(next.length > 0 && stick.offset().top >= $.data(stick[0], 'pos') - stick.outerHeight()) {
+				// 		stick.css({'postion':'absolute', 'top': $.data(next[0], 'pos') - (stick.outerHeight() * 2) - (item.eq(0).offset().top - item.eq(i).outerHeight()) });
+				// 	}
+				// } else {
+				// 	stick.css({'position': 'absolute', 'top': ''});
 
-		// 			if(prev.length > 0 && self.parent.scrollTop() <= $.data(stick[0], 'pos') - prev.outerHeight()) {
-		// 				prev.css('position', '').removeAttr('style');
-		// 			}
-		// 		}
-		// 	});
+				// 	if(prev.length > 0 && self.parent.scrollTop() <= $.data(stick[0], 'pos') - prev.outerHeight()) {
+				// 		prev.css('position', '').removeAttr('style');
+				// 	}
+				// }
+			});
 		}
 
 	};
