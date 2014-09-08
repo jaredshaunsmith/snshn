@@ -7,7 +7,7 @@
 
                 <article class="post" data-year="{{ post.get('date') }}" data-id="{{ post.get('ID') }}">
                     <h3>
-                        <a href="<?php get_bloginfo('url'); ?>/#posts/{{ post.get('ID') }}/">{{ post.get('title') }}</a>
+                        <a class="post-link" href="<?php get_bloginfo('url'); ?>/#posts/{{ post.get('ID') }}/">{{ post.get('title') }}</a>
                     </h3>
 
                     <img src="{{ post.get('custom_meta')['photo'] }}"  style="visibility: hidden; height: 0px; width: 0px;"/>

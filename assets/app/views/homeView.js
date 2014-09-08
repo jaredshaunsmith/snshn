@@ -60,8 +60,16 @@ snshn.homeView = Backbone.View.extend({
         $(this.el).html(template);
 
         window.setTimeout(function() {
+            $(window).trigger('homeReady');
             $('#posts').addClass(self.states.active);
-            $('[data-id="'+window.location.hash.split('#posts').pop().split('/')[1]+'"] a').addClass('active-post');
+            if(window.location.hash) {
+                $('[data-id="'+window.location.hash.split('#posts').pop().split('/')[1]+'"] a').addClass('active-post');
+            } else {
+                window.setTimeout(function() {
+                    var first = $('#left .post-list .post').first();
+                    $('.post-link',first).addClass('active-post');
+                }, 500);
+            }
         }, 3000);
     }
 });

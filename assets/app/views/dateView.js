@@ -50,7 +50,7 @@ snshn.DateView = (function($, _, snshn) {
 
 			window.setTimeout(function() {
 				item.first().css({'position': 'fixed', 'top': item.offset().top, 'left': item.offset().left});
-			},4000);
+			},1000);
 		},
 
 		stick: function() {

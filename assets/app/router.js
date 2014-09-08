@@ -26,6 +26,15 @@ snshn.AppRouter = Backbone.Router.extend({
     home: function() {
         // console.log('home');
         new snshn.homeView().fetchPosts(1);
+        
+        if($('#single .post-list .post').length <= 0) {
+            $(window).on('homeReady', function() {
+                var first = $('#left .post-list .post').first().attr('data-id');
+                _.defer(function() {
+                    new snshn.singlePostView().fetchPost(first, 'sunshine_product');
+                });
+            });
+        }
     },
 
     paged: function(page_id) {
