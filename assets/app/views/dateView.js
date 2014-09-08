@@ -54,6 +54,7 @@ snshn.DateView = (function($, _, snshn) {
 		},
 
 		stick: function() {
+			var self = this;
 			// new snshn.StickEmUp($('li.stick-em-up'));
 			var item = $('.year-list-item');
 
@@ -65,21 +66,20 @@ snshn.DateView = (function($, _, snshn) {
 						prev = item.eq(i-1),
 						pos = $.data(stick[0], 'pos');
 
-				// console.log(stick, next, prev, pos);
-
-				// if(pos <= self.parent.scrollTop()) {
-				// 	stick.css('position', 'fixed');
+				// if(pos <= self.parent.data().scroller.sT) {
+				// 	stick.css({'position': 'fixed', 'top': item.offset().top, 'left': item.offset().left });
 
 				// 	if(next.length > 0 && stick.offset().top >= $.data(stick[0], 'pos') - stick.outerHeight()) {
 				// 		stick.css({'postion':'absolute', 'top': $.data(next[0], 'pos') - (stick.outerHeight() * 2) - (item.eq(0).offset().top - item.eq(i).outerHeight()) });
 				// 	}
 				// } else {
-				// 	stick.css({'position': 'absolute', 'top': ''});
+				// 	stick.css({'position': 'absolute', 'top': '', 'left': '-100%' });
 
-				// 	if(prev.length > 0 && self.parent.scrollTop() <= $.data(stick[0], 'pos') - prev.outerHeight()) {
-				// 		prev.css('position', '').removeAttr('style');
+				// 	if(prev.length > 0 && self.parent.data().scroller.sT <= $.data(stick[0], 'pos') - prev.outerHeight()) {
+				// 		prev.css({'position': 'fixed', 'top': stick.offset().top, 'left': stick.offset().left});
 				// 	}
 				// }
+				
 			});
 		}
 
