@@ -1,7 +1,9 @@
 %infoClass {
 	float: left;
+	font-family: $open-sans;
 }
 .info {
+	@extend .clearfix;
 	&-title {
 		@extend %infoClass;
 		font-weight: bold;

@@ -84,7 +84,6 @@ class WeDevs_Bootstrap {
 
         // all styles
         // wp_enqueue_style( 'bootstrap', $template_directory . '/css/bootstrap.css' );
-        // wp_enqueue_style( 'bootstrap-responsive', $template_directory . '/css/bootstrap-responsive.css' );
         wp_enqueue_style( 'style', $template_directory . '/css/style.css' );
 
         // all scripts

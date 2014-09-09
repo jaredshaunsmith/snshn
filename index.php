@@ -24,9 +24,10 @@ get_header();
 	<div class="row-2">
 		<div id="leftScroll" class="row-item row-2 scrollbar">
 			<div id="yearList" class="row-item year-list">
-				<ul style="top: -40px; position: relative;">
+				
+				<!-- <ul style="top: -40px; position: relative;">
 					
-				</ul>
+				</ul> -->
 			</div>
 			<div id="left" class="row-item"></div>
 		</div>

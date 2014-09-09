@@ -1,6 +1,7 @@
 .year-list {
 	overflow: hidden;
 	&-item {
+		font-family: $vollkorn;
 		list-style: none;
 		background: $site-background;
 		&:before {
@@ -9,6 +10,7 @@
 			float: left;
 			margin-right: 10px;
 			margin-left: -20px;
+			font-family: Arial, Helvetica, Sans-serif;
 		}
 	}
 }
