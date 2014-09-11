@@ -1,0 +1,17 @@
+.audio {
+	cursor: pointer;
+	font-size: 1.2rem;
+	letter-spacing: 0.2rem;
+	font-weight: 700;
+	margin: $spacing-half 0px;
+
+	&:before {
+		background: url(../images/play.png) no-repeat;
+		display: block;
+		content: "";
+		float: left;
+		width: 14px;
+		height: 30px;
+		margin-top: 1px;
+	}
+}

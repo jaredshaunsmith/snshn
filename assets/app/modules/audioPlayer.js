@@ -17,15 +17,23 @@ snshn.AudioPlayer = (function($, _, snshn) {
 
 	def.prototype = {
 		bind: function() {
-			console.log('woo');
-			this.getTracks();
+			// this.getTracks();
 		},
 
-		getTracks: function() {
-			$.get('http://api.soundcloud.com/resolve.json?url=http://soundcloud.com/jared-smyth/nine-acres&client_id=a77915dfdf4416fdfa51d32f981f9988', function(r) {
-          SC.stream('/tracks/'+r.id, {autoPlay: true});
+		getData: function(url, callback) {
+			var self = this,
+					id;
+
+			$.ajax('http://api.soundcloud.com/resolve.json?url='+url+'&client_id=a77915dfdf4416fdfa51d32f981f9988')
+			.done(function(r) {
+				callback.audioData = r;
+				callback.trigger('data');
       });
 		},
+
+		play: function(id) {
+			SC.stream('/tracks/'+id, {autoPlay: true});
+		}
 
 	}
 

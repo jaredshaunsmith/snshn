@@ -91,7 +91,7 @@ snshn.Base = (function($, snshn){
             SC.initialize({
                 client_id: 'a77915dfdf4416fdfa51d32f981f9988'
             });
-            new snshn.AudioPlayer();
+            snshn.player = new snshn.AudioPlayer();
         }
     };
 

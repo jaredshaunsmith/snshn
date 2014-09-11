@@ -45,6 +45,10 @@
                         {[ if(post.get('custom_meta')['edition_number']) { ]}<div class="info-meta">{{ post.get('custom_meta')['edition_number'] }}</div>{[ } ]}
                         {[ if(post.get('custom_meta')['extra_info']) { ]}<div class="info-meta">{{ post.get('custom_meta')['extra_info'] }}</div>{[ } ]}
                     </div>
+
+                    {[ if(post.get('custom_meta')['soundcloud_url']) { ]}
+                    <div class="audio" data-url="{{post.get('custom_meta')['soundcloud_url'] }}"></div>
+                    {[ } ]}
                 </article>
     </div>
 </script>

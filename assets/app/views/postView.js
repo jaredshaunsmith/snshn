@@ -11,10 +11,6 @@ snshn.singlePostView = Backbone.View.extend({
         'active' : 'active'
     },
 
-    events: {
-        'submit #commentform': 'submitComment'
-    },
-
     fetchPost: function(post_id, type) {
         self = this;
         self.type = type;
@@ -50,6 +46,26 @@ snshn.singlePostView = Backbone.View.extend({
             $(self.el).parent().addClass(self.states.active);
         }, 5000);
 
+        if($('.audio', $(this.el)).length > 0) {
+            $('.audio', $(this.el)).each(function() {
+                var url = $('.audio', $(self.el)).attr('data-url'),
+                    aud = this;
+                
+
+                $(this).on('click', function() {
+                    snshn.player.play($(this).attr('data-id'));
+                });
+
+                // no promises
+                snshn.player.getData(url, self);
+
+                self.on('data', function() {
+                    $(aud).attr('data-id', self.audioData.id);
+                    $(aud).html(self.audioData.title);
+                    $(aud).data(self.audioData);
+                });
+            });
+        }
     }
 
 });
