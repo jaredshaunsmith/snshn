@@ -1,11 +1,11 @@
 snshn.AudioPlayer = (function($, _, snshn) {
 	var def = function() {
 		this.$els = {
-
+			'footerAudio' : $('.footer .audio')
 		};
 
 		this.states = {
-
+			'playing' : 'is-playing'
 		};
 
 		init.call(this);
@@ -18,6 +18,15 @@ snshn.AudioPlayer = (function($, _, snshn) {
 	def.prototype = {
 		bind: function() {
 			// this.getTracks();
+			this.$els.footerAudio.on('click', function() {
+				 if($(this).hasClass(self.states.playing)) {
+              $(this).removeClass(self.states.playing);
+              snshn.player.stop();
+          } else {
+              $(this).addClass(self.states.playing);
+              snshn.player.play(self.audioData.r.id);
+          }
+			});
 		},
 
 		getData: function(url, callback) {
@@ -27,6 +36,7 @@ snshn.AudioPlayer = (function($, _, snshn) {
 			$.ajax('http://api.soundcloud.com/resolve.json?url='+url+'&client_id=a77915dfdf4416fdfa51d32f981f9988')
 			.done(function(r) {
 				callback.audioData = r;
+				self.audioData = r;
 				callback.trigger('data');
       });
 		},
@@ -43,6 +53,8 @@ snshn.AudioPlayer = (function($, _, snshn) {
 				self.go(sound);
 				snshn.player.currentTrack = sound;
 			});
+
+			this.$els.footerAudio.html(self.audioData.title);
 		},
 
 		stop: function(sound) {
@@ -52,10 +64,12 @@ snshn.AudioPlayer = (function($, _, snshn) {
 				snshn.player.currentTrack.stop();
 			}
 			this.playing = false;
+			this.$els.footerAudio.removeClass(this.states.playing);
 		},
 
 		go: function(sound) {
 			sound.play();
+			this.$els.footerAudio.addClass(this.states.playing);
 		}
 
 	}
