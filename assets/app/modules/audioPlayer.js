@@ -24,7 +24,7 @@ snshn.AudioPlayer = (function($, _, snshn) {
               snshn.player.stop();
           } else {
               $(this).addClass(self.states.playing);
-              snshn.player.play(self.audioData.r.id);
+              snshn.player.play(self.audioData.id);
           }
 			});
 		},
