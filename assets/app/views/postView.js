@@ -70,6 +70,13 @@ snshn.singlePostView = Backbone.View.extend({
                     $(aud).attr('data-id', self.audioData.id);
                     $(aud).html(self.audioData.title);
                     $(aud).data(self.audioData);
+
+                    if(!_.isUndefined(snshn.player.currentTrack)) {
+                        var cur = snshn.player.currentTrack.url.split('http://api.soundcloud.com/tracks/').pop().split('/stream?client_id=a77915dfdf4416fdfa51d32f981f9988');
+                        if(cur[0] == self.audioData.id) {
+                            $(aud).addClass(self.states.playing);
+                        }
+                    }
                 });
             });
         }
