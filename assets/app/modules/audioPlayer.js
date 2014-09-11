@@ -33,9 +33,15 @@ snshn.AudioPlayer = (function($, _, snshn) {
 
 		play: function(id) {
 			var self = this;
+			if(this.playing) {
+				this.stop();
+			}
+
 			SC.stream('/tracks/'+id, function(sound) {
-				snshn.currentTrack = sound;
-				snshn.player.currentTrack = new self.go(sound);
+				self.currentTrack = sound;
+				self.playing = true;
+				self.go(sound);
+				snshn.player.currentTrack = sound;
 			});
 		},
 
@@ -43,8 +49,9 @@ snshn.AudioPlayer = (function($, _, snshn) {
 			if(!_.isUndefined(sound)) {
 				sound.stop();
 			} else {
-				snshn.currentTrack.stop();
+				snshn.player.currentTrack.stop();
 			}
+			this.playing = false;
 		},
 
 		go: function(sound) {

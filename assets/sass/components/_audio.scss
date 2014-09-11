@@ -13,5 +13,19 @@
 		width: 14px;
 		height: 30px;
 		margin-top: 1px;
+		margin-right: 5px;
+	}
+
+	&.is-playing {
+		&:before {
+			background: $site-dark;
+			height: 15px;
+			width: 15px;
+			display: block;
+			content: "";
+			float: left;
+			margin-top: -2px;
+			margin-right: 10px;
+		}
 	}
 }
