@@ -8,7 +8,8 @@ snshn.singlePostView = Backbone.View.extend({
     },
 
     states: {
-        'active' : 'active'
+        'active' : 'active',
+        'playing' : 'is-playing'
     },
 
     fetchPost: function(post_id, type) {
@@ -53,7 +54,13 @@ snshn.singlePostView = Backbone.View.extend({
                 
 
                 $(this).on('click', function() {
-                    snshn.player.play($(this).attr('data-id'));
+                    if($(this).hasClass(self.states.playing)) {
+                        $(this).removeClass(self.states.playing);
+                        snshn.player.stop();
+                    } else {
+                        $(this).addClass(self.states.playing);
+                        snshn.player.play($(this).attr('data-id'));
+                    }
                 });
 
                 // no promises

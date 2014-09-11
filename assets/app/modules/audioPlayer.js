@@ -32,7 +32,23 @@ snshn.AudioPlayer = (function($, _, snshn) {
 		},
 
 		play: function(id) {
-			SC.stream('/tracks/'+id, {autoPlay: true});
+			var self = this;
+			SC.stream('/tracks/'+id, function(sound) {
+				snshn.currentTrack = sound;
+				snshn.player.currentTrack = new self.go(sound);
+			});
+		},
+
+		stop: function(sound) {
+			if(!_.isUndefined(sound)) {
+				sound.stop();
+			} else {
+				snshn.currentTrack.stop();
+			}
+		},
+
+		go: function(sound) {
+			sound.play();
 		}
 
 	}
