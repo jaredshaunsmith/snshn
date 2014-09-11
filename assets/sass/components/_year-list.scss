@@ -2,6 +2,7 @@
 	overflow: hidden;
 	&-item {
 		font-family: $vollkorn;
+		font-weight: 700;
 		list-style: none;
 		background: $site-background;
 		&:before {

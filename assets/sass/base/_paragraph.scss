@@ -15,7 +15,7 @@
 .paragraph {
     @include type-size(1.8);
 
-    margin-bottom: $spacing-double;
+    margin-bottom: $spacing-half;
 }
 .paragraph-header { @include type-size(4.4); line-height: 1.5em; }
 .paragraph-medium { @include type-size(1.5); }
