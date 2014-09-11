@@ -44,6 +44,7 @@ snshn.Base = (function($, snshn){
     var init = function() {
         this.bind();
         this.intro();
+        this.sc();
     }
 
     def.prototype = {
@@ -84,6 +85,13 @@ snshn.Base = (function($, snshn){
         backboneStart: function() {
             snshn.app = new snshn.AppRouter();
             Backbone.history.start();
+        },
+
+        sc: function() {
+            SC.initialize({
+                client_id: 'a77915dfdf4416fdfa51d32f981f9988'
+            });
+            new snshn.AudioPlayer();
         }
     };
 
