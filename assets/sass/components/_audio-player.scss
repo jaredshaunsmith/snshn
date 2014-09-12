@@ -53,8 +53,23 @@
 	// controls
 	&-controls {
 		position: absolute;
-		bottom: 50px;
-		left: 98px;
+		margin: 0;
+
+		&.audio-play {
+			position: absolute;
+			bottom: 50px;
+			left: 88px;
+			&.is-playing {
+					left: 80px;
+					top: 33px;
+			}
+		}
+		&.audio-stop {
+			position: absolute;
+			left: 105px;
+			bottom: 70px;
+		}
+
 	}
 }
 .rotate {

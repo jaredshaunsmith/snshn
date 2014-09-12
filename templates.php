@@ -47,7 +47,7 @@
                     </div>
 
                     {[ if(post.get('custom_meta')['soundcloud_url']) { ]}
-                    <div class="audio" data-url="{{post.get('custom_meta')['soundcloud_url'] }}"></div>
+                    <div class="audio-play" data-url="{{post.get('custom_meta')['soundcloud_url'] }}"></div>
                     {[ } ]}
                 </article>
     </div>

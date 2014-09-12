@@ -58,11 +58,14 @@
 			<div class="row-item-4-of-8">
 				<div class="audio-player">
 					<div class="audio-player-reel-left"></div>
+					<div class="audio-tape left"></div>
 					<div class="audio-player-reel-right"></div>
+					<div class="audio-tape right"></div>
 					<div class="audio-player-track"></div>
 					<div class="audio-player-head"></div>
 					<div class="audio-player-controls"></div>
-					<div class="audio-player-controls audio"></div>
+					<div class="audio-player-controls audio-play"></div>
+					<div class="audio-player-controls audio-stop"></div>
 				</div>
 			</div>
 		</div>

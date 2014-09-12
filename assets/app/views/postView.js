@@ -9,7 +9,8 @@ snshn.singlePostView = Backbone.View.extend({
 
     states: {
         'active' : 'active',
-        'playing' : 'is-playing'
+        'playing' : 'is-playing',
+        'paused' : 'is-paused'
     },
 
     fetchPost: function(post_id, type) {
@@ -47,16 +48,18 @@ snshn.singlePostView = Backbone.View.extend({
             $(self.el).parent().addClass(self.states.active);
         }, 5000);
 
-        if($('.audio', $(this.el)).length > 0) {
-            $('.audio', $(this.el)).each(function() {
-                var url = $('.audio', $(self.el)).attr('data-url'),
+        if($('.audio-play', $(this.el)).length > 0) {
+            $('.audio-play', $(this.el)).each(function() {
+                var url = $('.audio-play', $(self.el)).attr('data-url'),
                     aud = this;
                 
 
                 $(this).on('click', function() {
                     if($(this).hasClass(self.states.playing)) {
                         $(this).removeClass(self.states.playing);
-                        snshn.player.stop();
+                        snshn.player.pause();
+                    } else if($(this).hasClass(self.states.paused)){
+                        snshn.player.resume();
                     } else {
                         $(this).addClass(self.states.playing);
                         snshn.player.play($(this).attr('data-id'));

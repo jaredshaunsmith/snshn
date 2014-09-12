@@ -1,12 +1,19 @@
 snshn.AudioPlayer = (function($, _, snshn) {
 	var def = function() {
 		this.$els = {
-			'footerAudio' : $('.footer .audio')
+			'footerAudio' : $('.footer .audio-play'),
+			'fotterAudioStop' : $('.footer .audio-stop'),
+			'head' : $('.audio-player-head'),
+			'reels' : $('.audio-player-reel-left, .audio-player-reel-right'),
+			'stop' : $('.footer .audio-stop'),
+			'tapeLeft' : $('.audio-tape.left'),
+			'tapeRight' : $('.audio-tape.right')
 		};
 
 		this.states = {
 			'playing' : 'is-playing',
-			'rotating' : 'rotate'
+			'rotating' : 'rotate',
+			'paused' : 'is-paused'
 		};
 
 		init.call(this);
@@ -22,11 +29,17 @@ snshn.AudioPlayer = (function($, _, snshn) {
 			this.$els.footerAudio.on('click', function() {
 				 if($(this).hasClass(self.states.playing)) {
               $(this).removeClass(self.states.playing);
-              snshn.player.stop();
+              snshn.player.pause();
+          } else if($(this).hasClass(self.states.paused)){
+              snshn.player.resume();
           } else {
               $(this).addClass(self.states.playing);
               snshn.player.play(self.audioData.id);
           }
+			});
+
+			this.$els.stop.on('click', function() {
+				snshn.player.stop();
 			});
 		},
 
@@ -65,17 +78,58 @@ snshn.AudioPlayer = (function($, _, snshn) {
 				snshn.player.currentTrack.stop();
 			}
 			this.playing = false;
-			this.$els.footerAudio.removeClass(this.states.playing);
-			$("[data-id='"+self.audioData.id+"']").removeClass(this.states.playing);
-			$('.audio-player-head').removeClass(this.states.playing);
-			$('.audio-player-reel-left, .audio-player-reel-right').removeClass(this.states.rotating);
+			this.removeActiveStates();
+		},
+
+		resume: function() {
+			snshn.player.currentTrack.resume();
+			this.addActiveStates();
+		},
+
+		pause: function() {
+			snshn.player.currentTrack.pause();
+			this.addPausedStates();
 		},
 
 		go: function(sound) {
 			sound.play();
-			this.$els.footerAudio.addClass(this.states.playing);
-			$('.audio-player-head').addClass(this.states.playing);
-			$('.audio-player-reel-left, .audio-player-reel-right').addClass(this.states.rotating);
+			this.addActiveStates();
+		},
+
+		addActiveStates: function() {
+			$("[data-id='"+self.audioData.id+"']").removeClass(this.states.paused).addClass(this.states.playing);
+			this.$els.footerAudio.addClass(this.states.playing).removeClass(this.states.paused);
+			this.$els.head.addClass(this.states.playing);
+			this.$els.reels.addClass(this.states.rotating);
+		},
+
+		addPausedStates: function() {
+			this.$els.footerAudio.removeClass(this.states.playing);
+			$("[data-id='"+self.audioData.id+"']").removeClass(this.states.playing).addClass(this.states.paused);
+			this.$els.reels.removeClass(this.states.rotating);
+			this.$els.footerAudio.addClass(this.states.paused);
+		},
+
+		removeActiveStates: function() {
+			this.$els.footerAudio.removeClass(this.states.playing);
+			$("[data-id='"+self.audioData.id+"']").removeClass(this.states.playing);
+			this.$els.head.removeClass(this.states.playing);
+			this.$els.reels.removeClass(this.states.rotating);
+		},
+
+		scaleTapes: function() {
+			var self = this,
+					length = snshn.player.currentTrack.duration * 0.001,
+					maxWidth = 55,
+					originalScale = length / maxWidth;
+
+
+			this.scale = setInterval(function() {
+				console.log(originalScale);
+				// console.log(snshn.player.currentTrack.position);
+
+				self.$els.tapeLeft.css({'width': self.$els.tapeLeft.width() + originalScale, 'height': self.$els.tapeLeft.width() + originalScale});
+			}, 1000);
 		}
 
 	}

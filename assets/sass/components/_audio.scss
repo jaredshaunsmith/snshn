@@ -1,31 +1,64 @@
-.audio {
+%aud {
 	cursor: pointer;
 	font-size: 1.2rem;
 	letter-spacing: 0.2rem;
 	font-weight: 700;
 	margin: $spacing-half 0px;
-
-	&:before {
-		background: url(../images/play.png) no-repeat;
-		display: block;
-		content: "";
-		float: left;
-		width: 14px;
-		height: 30px;
-		margin-top: 1px;
-		margin-right: 5px;
-	}
-
-	&.is-playing {
+}
+.audio {
+	&-play {
+		@extend %aud;
 		&:before {
-			background: $site-dark;
-			height: 15px;
-			width: 15px;
+			background: url(../images/play.png) no-repeat;
 			display: block;
 			content: "";
 			float: left;
-			margin-top: -2px;
-			margin-right: 10px;
+			width: 14px;
+			height: 30px;
+			margin-top: 1px;
+			margin-right: 5px;
 		}
+
+		&.is-playing {
+			&:before {
+				color: $site-highlight;
+				display: block;
+				content: "||";
+				float: left;
+				margin-top: -2px;
+				margin-right: 10px;
+				background: none;
+				letter-spacing: 2px;
+				word-wrap: initial;
+				white-space: nowrap;
+				font-weight: 700;
+				font-size: 1.5rem;
+			}
+		}
+	}
+
+	&-stop {
+		@extend %aud;
+		width: 11px;
+		height: 11px;
+		background-color: $site-highlight;
+		display: block;
+	}
+}
+
+.audio-tape {
+	border-radius: 200px;
+	background: $tape;
+	width: 2px;
+	height: 2px;
+	position: absolute;
+
+	&.left {
+		top: 31px;
+		left: 29px;
+	}
+	&.right {
+		right: 27px;
+		top: 31px;
 	}
 }
