@@ -40,8 +40,8 @@
 			</div>
 		</div>
 
-		<div class="row-item row-3">
-			<div class="row-item">
+		<div class="row-item row-1">
+			<div class="row-item-2-of-8">
 				<h3>Distributors</h3>
 				<div class="footer-info footer-info-distributors">
 						<?php 
@@ -52,12 +52,18 @@
 						?>
 					</div>
 			</div>
-			<div class="row-item">
+			<div class="row-item-2-of-8">
 				<h3>Cart</h3>
 			</div>
-			<div class="row-item">
-				<h3>Audio</h3>
-				<div class="audio"></div>
+			<div class="row-item-4-of-8">
+				<div class="audio-player">
+					<div class="audio-player-reel-left"></div>
+					<div class="audio-player-reel-right"></div>
+					<div class="audio-player-track"></div>
+					<div class="audio-player-head"></div>
+					<div class="audio-player-controls"></div>
+					<div class="audio-player-controls audio"></div>
+				</div>
 			</div>
 		</div>
 

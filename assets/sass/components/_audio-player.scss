@@ -1,0 +1,67 @@
+.audio-player {
+	position: relative;
+	height: $footer-height / 2;
+	width: 80%;
+
+	// reels
+	&-reel-left, &-reel-right {
+		-webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+
+		position: absolute;
+		top: 2px;
+		background: url(../images/audio/audio-reel.png) no-repeat;
+		background-size: contain;
+		width: 60px;
+		height: 60px;
+		z-index: 3;
+	}
+	&-reel-left {
+		left: 0;
+	}
+	&-reel-right {
+		right: -2px;
+	}
+
+	// track
+	&-track {
+		position: absolute;
+		bottom: 10px;
+		left: 18px;
+		background: url(../images/audio/audio-track.png) no-repeat;
+		background-size: contain;
+		width: 85%;
+		height: 50px;
+		z-index: 0;
+	}
+
+	// head
+	&-head {
+		transition-duration: 0.3s;
+		transition-property: bottom;
+
+		position: absolute;
+		bottom: 30px;
+		left: 95px;
+		background: url(../images/audio/audio-head.png) no-repeat;
+		background-size: contain;
+		width: 17px;
+		height: 15px;
+
+		&.playing {
+			bottom: 23px;
+		}
+	}
+
+	// controls
+	&-controls {
+		position: absolute;
+		bottom: 50px;
+		left: 98px;
+	}
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

@@ -65,6 +65,7 @@ snshn.AudioPlayer = (function($, _, snshn) {
 			}
 			this.playing = false;
 			this.$els.footerAudio.removeClass(this.states.playing);
+			$("[data-id='"+self.audioData.id+"']").removeClass(this.states.playing);
 		},
 
 		go: function(sound) {
