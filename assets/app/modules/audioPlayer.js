@@ -55,7 +55,7 @@ snshn.AudioPlayer = (function($, _, snshn) {
 				snshn.player.currentTrack = sound;
 			});
 
-			this.$els.footerAudio.html(self.audioData.title);
+			// this.$els.footerAudio.html(self.audioData.title);
 		},
 
 		stop: function(sound) {
