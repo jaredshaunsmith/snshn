@@ -5,7 +5,8 @@ snshn.AudioPlayer = (function($, _, snshn) {
 		};
 
 		this.states = {
-			'playing' : 'is-playing'
+			'playing' : 'is-playing',
+			'rotating' : 'rotate'
 		};
 
 		init.call(this);
@@ -66,11 +67,15 @@ snshn.AudioPlayer = (function($, _, snshn) {
 			this.playing = false;
 			this.$els.footerAudio.removeClass(this.states.playing);
 			$("[data-id='"+self.audioData.id+"']").removeClass(this.states.playing);
+			$('.audio-player-head').removeClass(this.states.playing);
+			$('.audio-player-reel-left, .audio-player-reel-right').removeClass(this.states.rotating);
 		},
 
 		go: function(sound) {
 			sound.play();
 			this.$els.footerAudio.addClass(this.states.playing);
+			$('.audio-player-head').addClass(this.states.playing);
+			$('.audio-player-reel-left, .audio-player-reel-right').addClass(this.states.rotating);
 		}
 
 	}

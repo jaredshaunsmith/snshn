@@ -5,10 +5,6 @@
 
 	// reels
 	&-reel-left, &-reel-right {
-		-webkit-animation:spin 4s linear infinite;
-    -moz-animation:spin 4s linear infinite;
-    animation:spin 4s linear infinite;
-
 		position: absolute;
 		top: 2px;
 		background: url(../images/audio/audio-reel.png) no-repeat;
@@ -38,7 +34,7 @@
 
 	// head
 	&-head {
-		transition-duration: 0.3s;
+		transition-duration: 0.6s;
 		transition-property: bottom;
 
 		position: absolute;
@@ -49,7 +45,7 @@
 		width: 17px;
 		height: 15px;
 
-		&.playing {
+		&.is-playing {
 			bottom: 23px;
 		}
 	}
@@ -61,7 +57,14 @@
 		left: 98px;
 	}
 }
+.rotate {
+		-webkit-animation: spin 4s linear infinite;
+    -moz-animation: spin 4s linear infinite;
+    animation: spin 4s linear infinite;
+}
 
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+	@-moz-keyframes spin { 100% { -moz-transform: rotate(-360deg); } }
+	@-webkit-keyframes spin { 100% { -webkit-transform: rotate(-360deg); } }
+	@keyframes spin { 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); } }
+
+
