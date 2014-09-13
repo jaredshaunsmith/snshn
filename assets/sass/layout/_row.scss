@@ -63,6 +63,7 @@ $row-options: (
 //special case for footer right
 .row-item-4-of-8 { 
 	@include col(1/2);
+	min-width: 252px;
 }
 .row-item-2-of-8 {
 	@include col(1/4);
