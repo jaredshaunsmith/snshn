@@ -95,8 +95,18 @@ snshn.AudioPlayer = (function($, _, snshn) {
 
 		go: function(sound) {
 			sound.play();
-			this.scaleTapes();
 			this.addActiveStates();
+			this.$els.tapeLeft.css({
+				'background-size': '100%',
+				'-webkit-background-size' : '100%',
+				'-moz-background-size' : '100%'
+			});
+			this.$els.tapeRight.css({
+				'background-size': '0%',
+				'-webkit-background-size' : '0%',
+				'-moz-background-size' : '0%'
+			});
+			this.scaleTapes();
 		},
 
 		addActiveStates: function() {
@@ -114,16 +124,6 @@ snshn.AudioPlayer = (function($, _, snshn) {
 		},
 
 		removeActiveStates: function() {
-			this.$els.tapeLeft.css({
-				'background-size': '100%',
-				'-webkit-background-size' : '100%',
-				'-moz-background-size' : '100%'
-			});
-			this.$els.tapeRight.css({
-				'background-size': '0%',
-				'-webkit-background-size' : '0%',
-				'-moz-background-size' : '0%'
-			});
 			this.$els.footerAudio.removeClass(this.states.playing);
 			$("[data-id='"+self.audioData.id+"']").removeClass(this.states.playing);
 			this.$els.head.removeClass(this.states.playing);
