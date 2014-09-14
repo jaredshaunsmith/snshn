@@ -1,0 +1,10 @@
+#single {
+	
+
+}
+
+@include tablet-l() {
+	#single {
+		width: 100%;
+	}
+}

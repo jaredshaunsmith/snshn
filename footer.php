@@ -14,8 +14,8 @@
 <!-- FOOTER BEGIN -->
 <section class="footer">
 	<div class="row-2 wrapper">
-		<div class="row-item row-2">
-			<div class="row-item">
+		<div class="row-item row-2 footer-left">
+			<div class="row-item footer-info-wrapper">
 				<img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/logo.png"></img>
 				<h3><strong>SUNSHINE</strong> Limited</h3>
 					<div class="footer-info footer-info-about">
@@ -27,7 +27,7 @@
 						?>
 					</div>
 			</div>
-			<div class="row-item">
+			<div class="row-item footer-info-connect-wrapper">
 				<h3>Connect</h3>
 				<div class="footer-info footer-info-connect">
 						<?php 
@@ -40,8 +40,8 @@
 			</div>
 		</div>
 
-		<div class="row-item row-1">
-			<div class="row-item-2-of-8">
+		<div class="row-item row-1 footer-right">
+			<div class="row-item-2-of-8 footer-info-distributors-wrapper">
 				<h3>Distributors</h3>
 				<div class="footer-info footer-info-distributors">
 						<?php 
@@ -52,10 +52,10 @@
 						?>
 					</div>
 			</div>
-			<div class="row-item-2-of-8">
+			<div class="row-item-2-of-8 footer-cart-wrapper">
 				<h3>Cart</h3>
 			</div>
-			<div class="row-item-4-of-8">
+			<div class="row-item-4-of-8 footer-audio-wrapper">
 				<div class="audio-player">
 					<div class="audio-player-reel-left"></div>
 					<div class="audio-tape left">

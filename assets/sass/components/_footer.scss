@@ -31,3 +31,27 @@
 		width: 25px;
 	}
 }
+
+@include tablet-l() {
+	.footer .wrapper .row-2 {
+		.footer-info-wrapper, 
+		.footer-info-connect-wrapper, 
+		.footer-info-distributors-wrapper,
+		.footer-cart-wrapper,
+		.footer-audio-wrapper {
+			width: 50% !important;
+			float: left !important;
+			clear: none !important;
+		}
+	}
+	.footer-right, .footer-left {
+		float: left !important;
+		width: 50% !important;
+		clear: none !important;
+	}
+	.footer {
+		&.ready {
+			height: 80px;
+		}
+	}
+}
