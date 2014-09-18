@@ -13,6 +13,7 @@ snshn.DateView = (function($, _, snshn) {
 
 	var init = function() {
 		this.bind();
+		this.setup();
 		this.checkSize();
 	};
 
