@@ -5,6 +5,6 @@
 @include tablet-l() {
 	#leftScroll {
 		float: left;
-		max-height: 20px;
+		z-index: 2334;
 	}
 }

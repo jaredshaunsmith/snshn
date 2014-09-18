@@ -7,8 +7,48 @@
 		}
 	}
 }
+
+.mobile-toggle {
+	display: none;
+}
+
 #left {
 	.post {
 		padding-left: 10px; //magic number = lazy
 	}
+}
+
+@include tablet-l() {
+	.mobile-toggle {
+		display: block;
+		height: 25px;
+		font-weight: bold;
+		font-size: 2.8rem;
+		right: 25px;
+		position: fixed;
+		width: 100%;
+		text-align: right;
+		top: 21px;
+		color: white;
+	}
+
+	#leftScroll 	.post-list {
+		max-height: 25px;
+		overflow: hidden;
+		transition-duration: 0.3s;
+		transition-property: max-height;
+		position: fixed;
+		top: 20px;
+		background: #fff;
+		left: 20px;
+		right: 20px;
+		border-top: 28px solid $site-highlight;
+
+		&.active {
+			max-height: 7000px;
+			overflow: scroll;
+			-webkit-overflow-scrolling: touch;
+		}
+	}
+
 }

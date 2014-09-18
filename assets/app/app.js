@@ -1,9 +1,10 @@
-var snshn = (function() {
-    var defaults = [];
-    return { 
+var snshn = (function(_) {
+    var defaults = {
+			'breakPoint' : 1024
+    };
 
-    }
-})();
+    return _.extend({}, defaults);
+})(_);
 
 $ = jQuery;
 $(function() {

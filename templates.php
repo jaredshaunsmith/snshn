@@ -1,6 +1,6 @@
 <script type="text/tmpl" id="home-view">
     <div class="post-list">
-
+    <div class="mobile-toggle">+</div>
          {[ if(posts.length) { ]}
             {[ _.each(posts, function(post){ 
                 ]}

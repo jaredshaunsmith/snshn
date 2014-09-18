@@ -22,13 +22,18 @@ snshn.Base = (function($, snshn){
         };
 
         snshn.setupHeights = function() {
-            var w = $(window).outerHeight(true),
-                fH = snshn.$els.footer.outerHeight(true),
-                oF = '60',
-                t = w - fH - oF;
+            if($(window).width() < snshn.breakPoint) {
+                snshn.$els.left.removeAttr('style');
+                snshn.$els.right.removeAttr('style');
+            } else {
+                var w = $(window).outerHeight(true),
+                    fH = snshn.$els.footer.outerHeight(true),
+                    oF = '60',
+                    t = w - fH - oF;
 
-            snshn.$els.left.css('height', t);
-            snshn.$els.right.css('height', t);
+                snshn.$els.left.css('height', t);
+                snshn.$els.right.css('height', t);
+            }
         };
 
         _.extend(snshn.tools.PubSub, Backbone.Events);
@@ -45,6 +50,7 @@ snshn.Base = (function($, snshn){
         this.bind();
         this.intro();
         this.sc();
+        this.mobileToggle();
     }
 
     def.prototype = {
@@ -92,6 +98,12 @@ snshn.Base = (function($, snshn){
                 client_id: 'a77915dfdf4416fdfa51d32f981f9988'
             });
             snshn.player = new snshn.AudioPlayer();
+        },
+
+        mobileToggle: function() {
+            $(window).on('homeReady', function() {
+                new snshn.MobileToggle();
+            });
         }
     };
 

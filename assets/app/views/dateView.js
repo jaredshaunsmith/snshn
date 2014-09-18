@@ -13,16 +13,28 @@ snshn.DateView = (function($, _, snshn) {
 
 	var init = function() {
 		this.bind();
-		this.setup();
+		this.checkSize();
 	};
 
 	def.prototype = {
 		bind: function() {
 			var self = this;
 
+			$(window).on('resize', function() {
+				self.checkSize();
+			});
+
 			// this.parent.on('scrolling', function() {
 			// 	self.stick();
 			// });
+		},
+
+		checkSize: function() {
+			if($(window).width() < snshn.breakPoint) {
+				this.stickDestroy();
+			} else {
+				this.stickSetup();
+			}
 		},
 
 		setup: function() {
@@ -51,6 +63,12 @@ snshn.DateView = (function($, _, snshn) {
 			window.setTimeout(function() {
 				item.first().css({'position': 'fixed', 'top': item.offset().top, 'left': item.offset().left});
 			},1000);
+		},
+
+		stickDestroy: function() {
+			var item = $('.year-list-item');
+
+			item.removeAttr('style');
 		},
 
 		stick: function() {
