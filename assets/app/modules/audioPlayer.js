@@ -136,8 +136,6 @@ snshn.AudioPlayer = (function($, _, snshn) {
 					maxWidth = 55,
 					originalScale = length / maxWidth;
 
-			console.log(originalScale, length);
-
 
 			this.scale = setInterval(function() {
 				self.$els.tapeLeft.css({

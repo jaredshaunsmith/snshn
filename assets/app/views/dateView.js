@@ -20,9 +20,9 @@ snshn.DateView = (function($, _, snshn) {
 		bind: function() {
 			var self = this;
 
-			this.parent.on('scrolling', function() {
-				self.stick();
-			});
+			// this.parent.on('scrolling', function() {
+			// 	self.stick();
+			// });
 		},
 
 		setup: function() {
@@ -36,7 +36,7 @@ snshn.DateView = (function($, _, snshn) {
 				match.prepend(item);
 			});
 
-			this.stickSetup();
+			// this.stickSetup();
 		},
 
 		stickSetup: function() {

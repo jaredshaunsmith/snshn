@@ -42,7 +42,9 @@ snshn.singlePostView = Backbone.View.extend({
         $(this.el).html(template);
         snshn.tools.PubSub.trigger('post:single:' + this.type, this.model);
 
-        $(this.el).scroller();
+        if($(window).width() > 1024) {
+            $(this.el).scroller();
+        }
 
         window.setTimeout(function() {
             $(self.el).parent().addClass(self.states.active);

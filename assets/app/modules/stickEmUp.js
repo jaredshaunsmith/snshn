@@ -30,25 +30,25 @@ snshn.StickEmUp = (function($, snshn) {
     def.prototype = {
 
         bind: function() {
-            var self = this;
+            // var self = this;
 
-            $('#leftScroll').on('scrolling', function() {
-                self.scroll();
-            });
+            // $('#leftScroll').on('scrolling', function() {
+            //     self.scroll();
+            // });
         },
 
         load: function() {
-            var self = this;
+            // var self = this;
 
-            this.$els.each(function() {
-                var stick = $(this);
+            // this.$els.each(function() {
+            //     var stick = $(this);
 
-                $(this).wrap('<div class="'+self.name+'-container"></div>');
+            //     $(this).wrap('<div class="'+self.name+'-container"></div>');
 
-                stick.parent().height(stick.outerHeight(true));
+            //     stick.parent().height(stick.outerHeight(true));
 
-                $.data(stick[0], 'pos', stick.offset().top);
-            });
+            //     $.data(stick[0], 'pos', stick.offset().top);
+            // });
         },
 
         scroll: function() {
